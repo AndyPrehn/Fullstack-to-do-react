@@ -27,7 +27,7 @@ function App () {
     <div id="app">
       <Header/>
       <hr/>
-      {/* <Form getTodoList={getTodoList}/> */}
+      <Form getTodoList={getTodoList}/>
       <hr/>
       <List getTodoList={getTodoList} todoList={todoList}/>
     </div>

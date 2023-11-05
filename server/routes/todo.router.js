@@ -4,13 +4,13 @@ const pool = require('../modules/pool.js');
 
 // GET
 router.get('/', (req, res) => {
-    queryText = `SELECT * FROM "todo" ORDER BY "priority", "id";`;
+    queryText = `SELECT * FROM "chekov-list" ORDER BY "priority", "id";`;
     pool.query(queryText)
     .then((result) => {
-        console.log('GET /todo successful');
+        console.log('GET /chekov-list successful');
         res.send(result.rows);
     }).catch((error) => {
-        console.log('GET /todo error', error);
+        console.log('GET /chekov-list error', error);
         res.sendStatus(500);
     })
 })
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     let todo = req.body;
     let queryText = `
-    INSERT INTO "todo" ("objective", "deadline")
+    INSERT INTO "chekov-list" ("objective", "deadline")
     VALUES ($1, $2);
     `;
     pool.query(queryText, [todo.objective, todo.deadline])
@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
     console.log('DELETE', req.params);
     let queryText = `
-    DELETE FROM "todo" WHERE "id" = $1;
+    DELETE FROM "chekov-list" WHERE "id" = $1;
     `;
     pool.query(queryText, [req.params.id])
     .then(() => {
@@ -52,7 +52,7 @@ router.put('/:id', (req, res) => {
     let date = new Date();
     date = date.toISOString();
     const queryText =`
-    UPDATE "todo" SET "completed" = NOT "completed",
+    UPDATE "chekov-list" SET "completed" = NOT "completed",
     "date_completed" = $2
     WHERE "id" = $1;
     `;
