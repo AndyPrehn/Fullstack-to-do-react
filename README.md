@@ -5,7 +5,7 @@
 
 ## Task List
 - [x]  Create a database called chekov_list
-- [ ]  Create a database.sql file and add the create table SQL
+- [X]  Create a database.sql file and add the create table SQL
 - [ ]  Add sample data with insert statements
 - [ ]  Add insert statements into the database.sql file
 - [ ]  Create a GET route in the todo.router.js file to return sample data

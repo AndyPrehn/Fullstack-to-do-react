@@ -7,6 +7,12 @@ CREATE TABLE "chekov-list"(
 	"complete" BOOLEAN DEFAULT false
 );
 
-INSERT INTO "chekov-list"("title","duedate","description")
+INSERT INTO "chekov-list"("priority","title","description","duedate","completed")
 VALUES
-	('Create SQL table','2023-10-28','Need to define headers, create fake data'),
+	(1,"Merigues", "new years eve party",12.27.23,"no"),
+	(2,"creme puffs","new years eve party",12.27.23,"no")
+	(3,"cookies", "new years eve party",12.27.23,"no"),
+	(4,"chocolates", "new years eve party",12.27.23,"no"),
+	(5,"wreaths", "new years eve party",12.27.23,"no"),
+	(6,"rosettes", "new years eve party",12.27.23,"no"),
+	(7,"crostini's", "new years eve party",12.27.23,"no"),
