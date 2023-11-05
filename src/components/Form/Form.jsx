@@ -10,10 +10,11 @@ function Form(props) {
     const [duedate, setDuedate] = useState("");
 
 
-    const addTask = () => {
+    const addTask = (event) => {
+            event.preventDefault();
         let newTask = {
             priority: priority,
-            title: title,
+            task: task,
             description: description,
             duedate: duedate,
         }
@@ -24,7 +25,7 @@ function Form(props) {
             setDuedate('');
 
             console.log('Response from server: ', response.data);
-            props.getToDoList();
+            props.getTodoList();
         })
             .catch((error) => {
                 console.error("Error in POST '/todo' inside addTask().", error);

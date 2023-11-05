@@ -18,10 +18,10 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     let todo = req.body;
     let queryText = `
-    INSERT INTO "chekov-list" ("objective", "deadline")
-    VALUES ($1, $2);
+    INSERT INTO "chekov-list" ("priority", "title", "description", "duedate")
+    VALUES ($1, $2, $3, $4);
     `;
-    pool.query(queryText, [todo.objective, todo.deadline])
+    pool.query(queryText, [todo.priority, todo.task, todo.description, todo.duedate])
     .then(() => {
         console.log('Successful POST')
         res.sendStatus(200);
