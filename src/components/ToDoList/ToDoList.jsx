@@ -5,7 +5,7 @@ import './ToDoList.css';
 function List(props){
     return(
         <div id="task-list">
-            {props.todoList.map((task) => (<Item key={task.id} getToDoList={props.getToDoList} task={task}/>))}
+            {props.todoList.map((task) => (<Item key={task.id} getTodoList={props.getTodoList} task={task}/>))}
         </div>
     )
 }

@@ -52,11 +52,8 @@ router.put('/:id', (req, res) => {
     let date = new Date();
     date = date.toISOString();
     const queryText =`
-    UPDATE "chekov-list" SET "completed" = NOT "completed",
-    "date_completed" = $2
-    WHERE "id" = $1;
-    `;
-    pool.query(queryText, [req.params.id, date])
+    UPDATE "chekov-list" SET "complete" = NOT "complete" WHERE "id" = $1;`;
+    pool.query(queryText, [req.params.id])
     .then(() => {
         res.sendStatus(201);
     }).catch((error) => {
