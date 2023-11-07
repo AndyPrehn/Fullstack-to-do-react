@@ -3,7 +3,12 @@ import axios from 'axios';
 import Header from '../Header/Header';
 import Form from '../Form/Form';
 import List from '../ToDoList/ToDoList';
+
+// Styling
 import '../App/App.css';
+import Container from '@mui/material/Container';
+
+
 
 function App () {
   const [todoList, setTodoList] = useState([]);
@@ -24,13 +29,15 @@ function App () {
   }, []);
   
   return (
-    <div id="app">
+    <Container maxWidth="lg" id="app">
       <Header/>
       <hr/>
       <Form getTodoList={getTodoList}/>
       <hr/>
       <List getTodoList={getTodoList} todoList={todoList}/>
-    </div>
+
+
+    </Container>
   );
 
 }

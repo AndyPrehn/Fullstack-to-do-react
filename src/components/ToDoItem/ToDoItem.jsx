@@ -1,6 +1,8 @@
 import React from 'react';
 import './ToDoItem.css';
 import axios from 'axios';
+import Button from '@mui/material/Button';
+
 
 function Item(props) {
 
@@ -27,16 +29,7 @@ function Item(props) {
             })
     }
 
-    const removeTask = () => {
-        axios.delete(`/todo/${props.task.id}`).then((response) => {
-            console.log(`Task id:${props.task.id} deleted`)
-            props.getTodoList();
-        })
-            .catch((error) => {
-                console.error("Error in DELETE '/todo/:id' inside removeTask().", error);
-                alert("Something went wrong");
-            })
-    }
+    
 
     const timeDue = () => {
         if (Number(props.task.daysuntildue) > 0) {
@@ -96,8 +89,7 @@ function Item(props) {
                 </div>
                 <br></br>
                 <div className='buttons-div'>
-                    <button className="complete-btn" onClick={toggleComplete}>Mark Incomplete</button>
-                    <button className="remove-btn" onClick={removeTask}>Remove</button>
+                    
                 </div>
             </div>
         )
